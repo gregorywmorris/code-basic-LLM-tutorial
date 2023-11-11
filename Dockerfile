@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.11.5-slim-bullseye
 
 WORKDIR /app
 
@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     software-properties-common \
     git \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* 
+
+RUN pip install --upgrade pip
 
 RUN git clone https://github.com/gregorywmorris/code-basic-LLM-tutorial.git .
 

@@ -1,4 +1,4 @@
-FROM python:3.11.5-slim-bullseye
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -16,6 +16,8 @@ RUN git clone https://github.com/gregorywmorris/code-basic-LLM-tutorial.git .
 RUN pip install -r requirements.txt
 
 WORKDIR /app/RestaurantNameGenerator
+
+COPY ./RestaurantNameGenerator/.env /app/RestaurantNameGenerator/
 
 EXPOSE 8501
 
